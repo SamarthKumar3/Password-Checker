@@ -1,0 +1,17 @@
+.progress{
+    height: 5px;
+    border-radius: 10rem;
+    transition: all 0.3s cubic-bezier(0, 0.39, 0.62, 2.39) 0s;
+}
+
+.progress-container {
+    position: absolute;
+    width: 100%;
+    border: solid 1px grey;
+    height: 7px;
+    border-radius: 10rem;
+}
+
+.progress-bg{
+    position: relative;
+}
