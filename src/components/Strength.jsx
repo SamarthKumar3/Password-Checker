@@ -25,38 +25,37 @@ const Strength = (props) => {
 
             let passStrength = Object.values(strength).filter(item => item === true).length;
             let val;
-            if(password.length > 4){
-                val = 
+            if (password.length > 4) {
+                val =
                     passStrength === 5
                         ? "Very Strong"
                         : passStrength === 4
-                        ? "Strong"
-                        : passStrength === 3 
-                        ? "Medium" 
-                        : "Weak";
+                            ? "Strong"
+                            : passStrength === 3
+                                ? "Medium"
+                                : "Weak";
             }
             else {
-                val="too short!";
+                val = "too short!";
             }
-
             setMessage(val);
-            if(password.length<=4 ){
-                if(passStrength===0){
+            if (password.length <= 4) {
+                if (passStrength === 0) {
                     setProgress('1%');
                 }
-                else{
+                else {
                     setProgress('10%');
                 }
             }
-            else{
-                setProgress(passStrength===0 ? '1%' : `${(passStrength / 5) * 100}%`);
+            else {
+                setProgress(passStrength === 0 ? '1%' : `${(passStrength / 5) * 100}%`);
             }
             return passStrength;
         }
 
         handlePassword(password);
 
-    }, [password]); 
+    }, [password]);
 
     const getActiveColor = (type) => {
         if (type === "Very Strong") return "#00ac46";
@@ -69,7 +68,7 @@ const Strength = (props) => {
     return (
         <>
             <div className="progress-bg">
-            <div className='progress-container'></div>
+                <div className='progress-container'></div>
                 <div
                     className="progress"
                     style={{
