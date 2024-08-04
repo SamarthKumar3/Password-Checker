@@ -34,7 +34,7 @@ const Search = () => {
             <button onClick={handleShow}>{inputType === 'password' ? 'Show' : 'Hide'}</button>
             <button onClick={handleClear}>Clear</button>
         </div>
-        <div>
+        <div className="strength-display">
             <Strength userInput={inputVal} />
         </div>
     </div>

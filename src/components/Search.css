@@ -52,3 +52,7 @@
     align-items: center;
     box-shadow: 6px 6px teal;
 }
+
+.strength-display {
+    width: 80%;
+}

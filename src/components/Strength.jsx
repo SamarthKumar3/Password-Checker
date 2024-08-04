@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './Strength.css';
 
 const Strength = (props) => {
-    const [progress, setProgress] = useState('1%');
+    const [progress, setProgress] = useState('0%');
     const [message, setMessage] = useState("");
     const password = props.userInput;
 
@@ -48,9 +48,9 @@ const Strength = (props) => {
                 }
             }
             else {
-                setProgress(passStrength === 0 ? '1%' : `${(passStrength / 5) * 100}%`);
+                setProgress(passStrength === 0 ? '0%' : `${(passStrength / 5) * 100}%`);
             }
-            return passStrength;
+            // return passStrength;
         }
 
         handlePassword(password);
@@ -69,20 +69,20 @@ const Strength = (props) => {
         <>
             <div className="progress-bg">
                 <div className='progress-container'></div>
-                <div
-                    className="progress"
-                    style={{
-                        width: progress,
-                        backgroundColor: getActiveColor(message),
-                        border: `solid ${getActiveColor(message)}`
-                    }}
-                ></div>
+                {password.length === 0 ? null :
+                    <div
+                        className="progress"
+                        style={{
+                            width: progress,
+                            backgroundColor: getActiveColor(message),
+                            border: `solid ${getActiveColor(message)}`
+                        }}
+                    ></div>
+                }
             </div>
-            {message ? (
-                <p className="message" style={{ color: getActiveColor(message) }}>
-                    Your password is {message}
-                </p>
-            ) : null}
+            <p className="message" style={{ color: getActiveColor(message) }}>
+                {password.length === 0 ? null : `Your password is ${message}`}
+            </p>
         </>
     );
 }
